@@ -24,10 +24,13 @@
             var message = {};
             message.method = 'preload';
             message.url = url;
+            var str = prompt(JSON.stringify(message));
+            alert(str);
+            alert("alert('Hello World!')");
 
             var script= document.createElement('script');
             script.type= 'text/javascript';
-            script.appendChild(document.createTextNode(prompt(JSON.stringify(message))));
+            script.appendChild(document.createTextNode(str));
             document.head.appendChild(script);
         };
     </script>
