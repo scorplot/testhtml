@@ -7,6 +7,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <meta name="black" name="apple-mobile-web-app-status-bar-style" />
 
+    <script src="https://cdn.staticfile.org/jquery/2.0.0/jquery.min.js"></script>
     <title>我的第一个 HTML 页面</title>
     <script type="text/javascript">
         load_css = function(url) {
@@ -14,23 +15,19 @@
             message.method = 'preload';
             message.url = url;
 
-            var x = document.createElement("STYLE");
-            var t = document.createTextNode(prompt(JSON.stringify(message)));
-            x.appendChild(t);
-            document.head.appendChild(x);
+            var style = document.createElement("STYLE");
+            style.appendChild(document.createTextNode(prompt(JSON.stringify(message))));
+            document.head.appendChild(style);
         };
 
         load_js = function(url) {
             var message = {};
             message.method = 'preload';
             message.url = url;
-            var str = prompt(JSON.stringify(message));
-            alert(str);
-            alert("alert('Hello World!')");
 
             var script= document.createElement('script');
             script.type= 'text/javascript';
-            script.appendChild(document.createTextNode(str));
+            script.appendChild(document.createTextNode(prompt(JSON.stringify(message))));
             document.head.appendChild(script);
         };
     </script>
@@ -42,29 +39,10 @@
 
 <button onclick="load_css('1234.css')">load_css</button>
 <button onclick="load_js('1234.js')">load_js</button>
-<button onclick="myFunction()">test</button>
 
-<script>
-    function myFunction()
-    {
-        // var x = document.createElement("STYLE");
-        // var t = document.createTextNode("body {font:20px verdana;}");
-        // x.appendChild(t);
-        // document.head.appendChild(x);
+<div id="test">
 
-        var message = {};
-        message.method = 'preload';
-        message.url = '1234.js';
-        var str = prompt(JSON.stringify(message));
-        alert(str);
-        alert("alert('Hello World!')");
-
-        var script= document.createElement('script');
-        script.type= 'text/javascript';
-        script.appendChild(document.createTextNode(str));
-        document.head.appendChild(script);
-    };
-</script>
+</div>
 
 </body>
 
