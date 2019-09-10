@@ -1,14 +1,44 @@
-<!DOCTYPE html>
 <html>
+
 <head>
+    <meta charset="utf-8">
+    <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=false" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="black" name="apple-mobile-web-app-status-bar-style" />
+
+    <title>我的第一个 HTML 页面</title>
+    <script type="text/javascript">
+        load_css = function(url) {
+            var message = {};
+            message.type = 'css';
+            message.url = url;
+
+            var x = document.createElement("STYLE");
+            var t = document.createTextNode(prompt(JSON.stringify(message)));
+            x.appendChild(t);
+            document.head.appendChild(x);
+        };
+
+        load_js = function(url) {
+            var message = {};
+            message.type = 'css';
+            message.url = url;
+
+            var script= document.createElement('script');
+            script.type= 'text/javascript';
+            script.appendChild(document.createTextNode(prompt(JSON.stringify(message))));
+            document.head.appendChild(script);
+        };
+    </script>
 </head>
+
 <body>
+<p>body 元素的内容会显示在浏览器中。</p>
+<p>title 元素的内容会显示在浏览器的标题栏中。</p>
 
-<p>点击按钮创建一个 STYLE 元素，并把它放置在头部区域。</p>
-
-<button onclick="myFunction()">尝试一下</button>
-
-<p>被创建的 style 元素包含了改变文档 font 属性的 css 声明。</p>
+<button onclick="load_css('1234.css')">load_css</button>
+<button onclick="load_css('1234.js')">load_js</button>
 
 <script>
     function myFunction()
@@ -26,4 +56,6 @@
 </script>
 
 </body>
+
 </html>
+
