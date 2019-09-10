@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html>
+<head>
+</head>
 <body>
 
-<p>点击按钮创建一个提示 "Hello World!" 的  元素。</p>
+<p>点击按钮创建一个 STYLE 元素，并把它放置在头部区域。</p>
 
 <button onclick="myFunction()">尝试一下</button>
+
+<p>被创建的 style 元素包含了改变文档 font 属性的 css 声明。</p>
 
 <script>
     function myFunction()
     {
-        var x = document.createElement("SCRIPT");
-        var t = document.createTextNode("alert('Hello World!')");
+        var x = document.createElement("STYLE");
+        var t = document.createTextNode("body {font:20px verdana;}");
         x.appendChild(t);
-        document.header.appendChild(x);
+        document.head.appendChild(x);
     };
 </script>
 
