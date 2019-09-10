@@ -1,13 +1,20 @@
+<!DOCTYPE html>
 <html>
-
-<head>
-    <title>我的第一个 HTML 页面</title>
-</head>
-
 <body>
-<p>body 元素的内容会显示在浏览器中。</p>
-<p>title 元素的内容会显示在浏览器的标题栏中。</p>
+
+<p>点击按钮创建一个提示 "Hello World!" 的  元素。</p>
+
+<button onclick="myFunction()">尝试一下</button>
+
+<script>
+    function myFunction()
+    {
+        var x = document.createElement("SCRIPT");
+        var t = document.createTextNode("alert('Hello World!')");
+        x.appendChild(t);
+        document.header.appendChild(x);
+    };
+</script>
+
 </body>
-
 </html>
-
