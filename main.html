@@ -11,7 +11,7 @@
     <script type="text/javascript">
         load_css = function(url) {
             var message = {};
-            message.type = 'css';
+            message.method = 'preload';
             message.url = url;
 
             var x = document.createElement("STYLE");
@@ -22,7 +22,7 @@
 
         load_js = function(url) {
             var message = {};
-            message.type = 'css';
+            message.method = 'preload';
             message.url = url;
 
             var script= document.createElement('script');
