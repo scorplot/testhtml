@@ -30,6 +30,14 @@
             script.appendChild(document.createTextNode(prompt(JSON.stringify(message))));
             document.head.appendChild(script);
         };
+
+        load_img = function(url) {
+            var message = {};
+            message.method = 'pre-img';
+            message.url = url;
+
+            return prompt(JSON.stringify(message));
+        };
     </script>
 </head>
 
