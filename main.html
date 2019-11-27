@@ -38,6 +38,37 @@
 
             return prompt(JSON.stringify(message));
         };
+
+        use_fetch = function() {
+            fetch('/user/12345').then(response => response.json())
+                .then(data => console.log(data))
+                .catch(e => console.log("Oops, error", e));
+        };
+
+        use_ajax = function loadXMLDoc()
+        {
+            var xmlhttp;
+            if (window.XMLHttpRequest)
+            {
+                //  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+                xmlhttp=new XMLHttpRequest();
+            }
+            else
+            {
+                // IE6, IE5 浏览器执行代码
+                xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange=function()
+            {
+                if (xmlhttp.readyState==4 && xmlhttp.status==200)
+                {
+                    //document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+                }
+            }
+            xmlhttp.open("GET","/try/ajax/ajax_info.txt",true);
+            xmlhttp.send();
+        }
+
     </script>
 </head>
 
@@ -51,6 +82,8 @@
 
 <button onclick="load_css('1234.css')">load_css</button>
 <button onclick="load_js('1234.js')">load_js</button>
+<button onclick="use_fetch()">use_fetch</button>
+<button onclick="use_ajax()">use_ajax</button>
 
 <div id="test">
 
