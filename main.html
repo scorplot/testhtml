@@ -43,7 +43,7 @@
             var message = {};
             message.method = 'preload';
             message.url = url;
-            message.callback = callbackFunction(function(response) {
+            message.callback = window.callbackFunction(function(response) {
                 var style = document.createElement("STYLE");
                 style.appendChild(document.createTextNode(response));
                 document.head.appendChild(style);
@@ -55,7 +55,7 @@
             var message = {};
             message.method = 'preload';
             message.url = url;
-            message.callback = callbackFunction(function(response) {
+            message.callback = window.callbackFunction(function(response) {
                 var script= document.createElement('script');
                 script.type= 'text/javascript';
                 script.appendChild(document.createTextNode(response));
@@ -68,7 +68,7 @@
             var message = {};
             message.method = 'pre-img';
             message.url = url;
-            message.callback = callbackFunction(fn);
+            message.callback = window.callbackFunction(fn);
             window.webkit.messageHandlers.JSCache.postMessage(message);
         };
     </script>
