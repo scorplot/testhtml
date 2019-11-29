@@ -45,7 +45,7 @@
             message.url = url;
             message.callback = callbackFunction(function(response) {
                 var style = document.createElement("STYLE");
-                style.appendChild(document.createTextNode(response);
+                style.appendChild(document.createTextNode(response));
                 document.head.appendChild(style);
             });
             window.webkit.messageHandlers.JSCache.postMessage(message);
@@ -58,7 +58,7 @@
             message.callback = callbackFunction(function(response) {
                 var script= document.createElement('script');
                 script.type= 'text/javascript';
-                script.appendChild(document.createTextNode(response);
+                script.appendChild(document.createTextNode(response));
                 document.head.appendChild(script);
             });
             window.webkit.messageHandlers.JSCache.postMessage(message);
