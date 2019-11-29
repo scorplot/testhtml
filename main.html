@@ -39,6 +39,38 @@
             return prompt(JSON.stringify(message));
         };
 
+        async_load_css = function(url) {
+            var message = {};
+            message.method = 'preload';
+            message.url = url;
+            message.callback = callbackFunction(function(response) {
+                var style = document.createElement("STYLE");
+                style.appendChild(document.createTextNode(response);
+                document.head.appendChild(style);
+            });
+            window.webkit.messageHandlers.JSCache.postMessage(message);
+        };
+
+        async_load_js = function(url) {
+            var message = {};
+            message.method = 'preload';
+            message.url = url;
+            message.callback = callbackFunction(function(response) {
+                var script= document.createElement('script');
+                script.type= 'text/javascript';
+                script.appendChild(document.createTextNode(response);
+                document.head.appendChild(script);
+            });
+            window.webkit.messageHandlers.JSCache.postMessage(message);
+        };
+
+        async_load_img = function(url, fn) {
+            var message = {};
+            message.method = 'pre-img';
+            message.url = url;
+            message.callback = callbackFunction(fn);
+            window.webkit.messageHandlers.JSCache.postMessage(message);
+        };
     </script>
 </head>
 
@@ -52,6 +84,9 @@
 
 <button onclick="load_css('1234.css')">load_css</button>
 <button onclick="load_js('1234.js')">load_js</button>
+
+<button onclick="async_load_css('1234.css')">async_load_css</button>
+<button onclick="async_load_js('1234.js')">async_load_js</button>
 
 <div id="test">
 
